@@ -28,5 +28,5 @@ jobs:
           host: ${{ secrets.AZURE_VM_IP }}
           username: ${{ secrets.AZURE_VM_USERNAME }}
           password: ${{ secrets.AZURE_VM_PASSWORD }}
-          source: "/home/pradeepsiriki_1/java-tomcat-maven-example/target/dependency/webapp-runner.jar"
+          source: "/home/pradeepsiriki/java-tomcat-maven-example/target/dependency/webapp-runner.jar"
           target: "/opt/tomcat/"
