@@ -30,3 +30,12 @@ jobs:
           password: ${{ secrets.AZURE_VM_PASSWORD }}
           source: "/home/pradeepsiriki/java-tomcat-maven-example/target/dependency/webapp-runner.jar"
           target: "/opt/tomcat/"
+      - name: Move WAR file to Tomcat
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.AZURE_VM_IP }}
+          username: ${{ secrets.AZURE_VM_USERNAME }}
+          password: ${{ secrets.AZURE_VM_PASSWORD }}
+          script: |
+            sudo mv /home/pradeepsiriki/java-tomcat-maven-example/target/dependency/webapp-runner.jar /opt/tomcat/webapps/
+            sudo systemctl restart tomcat
